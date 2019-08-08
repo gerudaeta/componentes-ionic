@@ -9,7 +9,6 @@ export class DataService {
     constructor(private http: HttpClient) { }
 
     getUsers() {
-        let url = 'https://jsonplaceholder.typicode.com/users';
-        return this.http.get(url);
+        return this.http.get('https://jsonplaceholder.typicode.com/users');
     }
 }
