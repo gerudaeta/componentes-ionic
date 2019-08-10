@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import {PopoverInfoComponent} from '../../components/popover-info/popover-info.component';
+import { PopoverInfoComponent } from '../../components/popover-info/popover-info.component';
+
 @Component({
     selector: 'app-popover',
     templateUrl: './popover.page.html',
@@ -13,13 +14,18 @@ export class PopoverPage implements OnInit {
     ngOnInit() {
     }
 
-    async mostrarPopover() {
+    async mostrarPopover(evento) {
         const popover = await this.popoverController.create({
             component: PopoverInfoComponent,
-
+            event: evento,
+            backdropDismiss: false
         });
 
         await popover.present();
+
+        // const { data } = await popover.onDidDismiss();
+        const { data } = await popover.onWillDismiss();
+        console.log('Padre: ', data);
     }
 
 }
