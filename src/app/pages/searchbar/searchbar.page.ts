@@ -15,9 +15,9 @@ export class SearchbarPage implements OnInit {
     constructor(private dataService: DataService) { }
 
     ngOnInit() {
-        this.dataService.getAlbums().subscribe(value => {
-            console.log(value);
-            this.albumes = value;
+        this.dataService.getAlbums().subscribe(albumes => {
+            console.log(albumes);
+            this.albumes = albumes;
         });
     }
 
