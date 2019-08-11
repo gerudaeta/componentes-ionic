@@ -10,6 +10,8 @@ export class SearchbarPage implements OnInit {
 
     albumes: any[] = [];
 
+    textoBuscar = '';
+
     constructor(private dataService: DataService) { }
 
     ngOnInit() {
@@ -21,6 +23,7 @@ export class SearchbarPage implements OnInit {
 
     buscar(event) {
         console.log(event);
+        this.textoBuscar = event.detail.value;
     }
 
 }
